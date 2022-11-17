@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="asset/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <?php 
+    include_once('db/connect.php');
+?>
+<div class="header">
+    <div class="header-bar">
+        <a class="logo" href="?quanly=home">LIBRARY</a>
+        <ul class="hd-icon">
+            <li>
+                <input type="text">
+                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            </li>
+            <li><a href=""><i class="fa-solid fa-bell"></i></a></li>
+            <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
+            <li class="user-icon more">
+                <a><i class="fa-solid fa-user"></i></a>
+                <ul class="hidden-list">
+                    <li><a href="?quanly=manager">Quản lý tài khoản</a></li>
+                    <li><a href="?quanly=login">Đăng nhập</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- danh sách menu -->
+    <?php
+        $sql_category = mysqli_query($connect,'SELECT * FROM tbl_category ORDER BY category_id ASC')
+        ?>
+
+    <div class="list-bar">
+        <ul class="list">
+            
+            <li><a href="?quanly=">Trang chủ</a></li>
+            <li><a href="?quanly=news">Tin tức</a></li>
+            <li class="more-book more">
+                <a href="?quanly=books">Sách
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="hidden-list">
+                    <?php
+                        while($row_category = mysqli_fetch_array($sql_category)){
+                        // $id_category = $row_cate_home['category_id'];    
+                    ?>
+                    <li><a href="?quanly=books&idcategory=<?php echo $row_category['category_id']?>">
+                            <?php echo $row_category['category_name'] ?>
+                        </a></li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </li>
+            <li><a href="?quanly=author">Tác giả</a></li>
+            <li><a href="?quanly=contact">Liên hệ</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="tg-container">
+            <div class="tg-img">
+                <img width="100%" height="100%" src="./asset/pic/businessman.png" alt="">
+
+            </div>
+
+            <div class="tg-content">
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                <div class="tg-book">
+                    <img width="200px" height="300px" src="./asset/pic/dac-nhan-tam.jpg" alt="">
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <div class="ft-main">
+            <div class="ft-logo ft">
+                <img src="./asset/pic/logo.png" alt="">
+                <p>
+                    Nơi Bạn Có Thể Tải Sách Miễn Phí
+                    Hoặc Yêu Cầu Sách. Bạn Cũng Có Thể
+                    Chia Sẻ Cảm Nhận Đánh Giá Của Mình
+                    Về Một Quyển Sách Sau Khi Đọc Xong.
+                </p>
+            </div>
+            <div class="ft-link ft">
+                <h4>Liên kết nhanh</h4>
+                <div class="ft-line"></div>
+                <ul>
+                    <li><a href="?quanly=home">Trang chủ</a></li>
+                    <li><a href="?quanly=news">Tin tức</a></li>
+                    <li><a href="?quanly=books">Sách</a></li>
+                    <li><a href="?quanly=author">Tác giả</a></li>
+                </ul>
+            </div>
+    
+            <div class="ft-Support ft">
+                <h4>Hỗ trợ</h4>
+                <div class="ft-line"></div>
+                <ul>
+                    <li><a href="?quanly=contact">Liên hệ</a></li>
+                    <li><a href="?quanly=manager">Tài khoản</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ft-end">
+            <p>Sái Văn Lượng &nbsp; MSSV: 20198244</p>
+        </div>
+        <div class="message">
+            <a href=""><i class="fa-solid fa-message"></i></a>
+        </div>
+    </div>
+</body>
+</html>
